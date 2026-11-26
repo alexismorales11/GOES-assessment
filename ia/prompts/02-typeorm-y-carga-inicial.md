@@ -62,3 +62,13 @@ Prompt:
 
 Prompt:
 > Entonces dejemos bcryptjs, conlleva muchos riesgos el cambio a argon2. Necesito que me des un resume sobre lo que se ha trabajado hasta el momento.
+
+## Commits y engines
+
+Prompt:
+> Avancemos con 1. Hacer los commit y 2. Agreuemos engines y .npmrc para obligar a que usen Node 22
+
+- La IA armó 5 commits incrementales. Para que el primero compilara sin TypeORM, preparó en el índice de git versiones de `app.module.ts`/`main.ts` sin base de datos (sin tocar los archivos de trabajo). Verificó en worktrees temporales que cada commit con código compila (y que el primero pasa las pruebas).
+- Un primer intento de esa verificación falló por un error del propio script (enlace de `node_modules` mal creado); se reportó y se repitió correctamente.
+- `engine-strict` verificado en un proyecto temporal: con la opción, `npm install` falla con `EBADENGINE`; sin ella, solo advierte. Se comprobó además que ninguna dependencia de `api/` declara un `engines` incompatible con Node 22.23.5.
+- Rango elegido: `>=22.0.0 <23.0.0` (cualquier Node 22); `.nvmrc` mantiene la versión exacta.
