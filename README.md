@@ -11,7 +11,7 @@ ia/     Documentación del uso de IA
 
 ## Requisitos
 
-- Node.js **22 LTS** (versión exacta en [`.nvmrc`](.nvmrc)) y npm
+- Node.js **22 LTS** (versión exacta en [`.nvmrc`](.nvmrc)) y npm. `api/package.json` declara `"engines": { "node": ">=22.0.0 <23.0.0" }` y `api/.npmrc` activa `engine-strict`, por lo que **`npm install` falla con `EBADENGINE`** si se usa otra versión de Node.
 - Docker Desktop (o Docker Engine + Compose v2)
 
 Con nvm-windows (la versión 1.2.2 **no** lee `.nvmrc` automáticamente):
