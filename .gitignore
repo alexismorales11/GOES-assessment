@@ -6,6 +6,7 @@ dist/
 build/
 .next/
 out/
+*.tsbuildinfo
 
 # Variables de entorno (solo se versiona .env.example)
 .env
